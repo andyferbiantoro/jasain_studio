@@ -27,7 +27,10 @@ Route::post('proses-login','AuthController@proses_login')->name('proses-login')-
 Route::get('/', 'LandingpageController@index')->name('landingpage-index');
 
 Route::group(['middleware' => ['auth', 'admin']],function(){
-    Route::get('/dashboard', 'AdminController@index')->name('dashboard-index');
+  
+
+});
+  Route::get('/dashboard', 'AdminController@index')->name('dashboard-index');
     Route::get('/admin_portofolio', 'AdminController@admin_portofolio')->name('admin_portofolio');
     Route::post('/admin_portofolio_add', 'AdminController@admin_portofolio_add')->name('admin_portofolio_add');
     Route::post('/admin_portofolio_update/{id}', 'AdminController@admin_portofolio_update')->name('admin_portofolio_update');
@@ -54,8 +57,6 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     Route::post('/admin_testimoni_add', 'AdminController@admin_testimoni_add')->name('admin_testimoni_add');
     Route::post('/admin_testimoni_update/{id}', 'AdminController@admin_testimoni_update')->name('admin_testimoni_update');
     Route::post('/admin_testimoni_delete/{id}', 'AdminController@admin_testimoni_delete')->name('admin_testimoni_delete');
-
-});
 
 
 Route::get('logout-admin', 'AuthController@logout')->name('logout-admin')->middleware(['admin', 'auth']);
