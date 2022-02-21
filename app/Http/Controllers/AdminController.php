@@ -8,6 +8,7 @@ use App\Layanan;
 use App\Team;
 use App\Galeri;
 use App\Testimoni;
+use App\VisiMisi;
 use Auth;
 use DB;
 use File;
@@ -361,6 +362,57 @@ public function admin_testimoni_delete($id)
   $delete->delete();
 
   return redirect('/admin_testimoni')->with('success', 'Data testimoni Baru Berhasil Dihapus');
+}
+
+//===========================================================================================================================
+
+public function admin_visi_misi(){
+
+   $visi_misi = VisiMisi::orderby('id','DESC')->get();
+
+   return view('admin.visi_misi',compact('visi_misi'));
+}
+
+
+public function admin_visi_misi_add(Request $request){
+
+   $data_add = new VisiMisi();
+
+   $data_add->visi = $request->input('visi');
+   $data_add->misi = $request->input('misi');
+  
+
+
+  $data_add->save();
+
+   return redirect('/admin_visi_misi')->with('success', 'Data visi_misi Baru Berhasil Ditambahkan');
+}
+
+
+public function admin_visi_misi_update(Request $request, $id)
+{
+
+  $data_update = VisiMisi::where('id', $id)->first();
+
+  $input = [
+     'visi' => $request->visi,
+     'misi' => $request->misi,
+ ];
+
+ 
+
+ $data_update->update($input);
+
+  return redirect('/admin_visi_misi')->with('success', 'Data visi_misi Baru Berhasil Diupdate');
+}
+
+
+public function admin_visi_misi_delete($id)
+{
+  $delete = VisiMisi::findOrFail($id);
+  $delete->delete();
+
+  return redirect('/admin_visi_misi')->with('success', 'Data testimoni Baru Berhasil Dihapus');
 }
 
 }

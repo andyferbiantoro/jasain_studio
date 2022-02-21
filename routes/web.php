@@ -58,5 +58,15 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     Route::post('/admin_testimoni_update/{id}', 'AdminController@admin_testimoni_update')->name('admin_testimoni_update');
     Route::post('/admin_testimoni_delete/{id}', 'AdminController@admin_testimoni_delete')->name('admin_testimoni_delete');
 
+<<<<<<< HEAD
+=======
+    Route::get('/admin_visi_misi', 'AdminController@admin_visi_misi')->name('admin_visi_misi');
+    Route::post('/admin_visi_misi_add', 'AdminController@admin_visi_misi_add')->name('admin_visi_misi_add');
+    Route::post('/admin_visi_misi_update/{id}', 'AdminController@admin_visi_misi_update')->name('admin_visi_misi_update');
+    Route::post('/admin_visi_misi_delete/{id}', 'AdminController@admin_visi_misi_delete')->name('admin_visi_misi_delete');
+
+});
+
+>>>>>>> 31f5d26eeab09b0a64e89b62e232df7a914c9e07
 
 Route::get('logout-admin', 'AuthController@logout')->name('logout-admin')->middleware(['admin', 'auth']);

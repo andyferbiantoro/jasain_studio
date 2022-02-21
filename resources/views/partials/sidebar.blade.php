@@ -73,6 +73,12 @@
                     <span>Testimoni</span></a>
             </li>
 
+             <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin_visi_misi') }}">
+                    <i class="fas fa-file"></i>
+                    <span>Visi Misi</span></a>
+            </li>
+
             
 
 
