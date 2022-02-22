@@ -79,6 +79,12 @@
                     <span>Visi Misi</span></a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin_kontak') }}">
+                   <i class="fas fa-address-book"></i>
+                    <span>Kontak</span></a>
+            </li>
+
             
 
 

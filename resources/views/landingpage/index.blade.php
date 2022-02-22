@@ -354,6 +354,23 @@
           <p>Portofolio</p>
         </div>
 
+        <!-- <div class="text-right">
+          <form class="form-inline">
+            <div class="form-group mx-sm-1 mb-2">
+
+              <div class="form-group">
+                <select type="text" class="form-control" id="filter_prodi" name="filter_prodi" required="">
+                  <option selected disabled value=""> -- Pilih Jenis Projek -- </option>
+                  @foreach($filter_portofolio as $portofolio)
+                  <option value="{{$portofolio->jenis_project}}" @if($portofolio->jenis_project == $port) {{'selected="selected"'}} @endif>{{$portofolio->jenis_project}}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2 fa fa-filter">Filter</button>
+          </form><br>
+        </div> -->
+
         <div class="row g-0" data-aos="fade-left">
           @foreach($data_portofolio as $data)
           <div class="col-lg-3 col-md-4">
@@ -473,24 +490,25 @@
 
           <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
             <div class="info">
+              @foreach($kontak as $data)
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Alamat :</h4>
-                <p>Banyuwangi : Jl. KH Manna Muncar, Banyuwangi 68472</p>
+                <p>{{$data->alamat}}</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>jasain@studio.com</p>
+                <p>{{$data->email}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Hubungi :</h4>
-                <p>+6282257661154</p>
+                <p>{{$data->nohp}}</p>
               </div>
-
+              @endforeach
             </div>
 
           </div>

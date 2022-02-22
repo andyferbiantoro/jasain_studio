@@ -51,6 +51,7 @@ Portofolio
                   <th scope="col">No</th>
                   <th scope="col">Judul Projek</th>
                   <th scope="col">Deskripsi Peojek</th>
+                  <th scope="col">Jenis Projek</th>
                   <th scope="col">Image Projek</th>
                   <th scope="col">Aksi</th>
                   <th style="display: none;">hidden</th>
@@ -63,6 +64,7 @@ Portofolio
               <td>{{$no++}}</td>
               <td>{{$data->judul}}</td>
               <td>{{$data->deskripsi}}</td>
+              <td>{{$data->jenis_project}}</td>
               <td style="text-align: center;"><img height="70" id="myImg" src="{{asset('uploads/portofolio/'.$data->image)}}"  data-toggle="modal" data-target="#myModal"></img></td>
               <td>
                <button class="btn btn-info btn-sm fa fa-edit edit" data-toggle="modal" data-target="#updateModal" title="Edit"></button>
@@ -113,6 +115,7 @@ Portofolio
               <option >Website</option>
               <option >Android</option>
               <option >Desain Grafis</option>
+              <option >Animasi</option>
             </select>
           </div>
 

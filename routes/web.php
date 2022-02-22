@@ -63,4 +63,9 @@ Route::group(['middleware' => ['auth', 'admin']],function(){
     Route::post('/admin_visi_misi_update/{id}', 'AdminController@admin_visi_misi_update')->name('admin_visi_misi_update');
     Route::post('/admin_visi_misi_delete/{id}', 'AdminController@admin_visi_misi_delete')->name('admin_visi_misi_delete');
 
+    Route::get('/admin_kontak', 'AdminController@admin_kontak')->name('admin_kontak');
+    Route::post('/admin_kontak_add', 'AdminController@admin_kontak_add')->name('admin_kontak_add');
+    Route::post('/admin_kontak_update/{id}', 'AdminController@admin_kontak_update')->name('admin_kontak_update');
+    Route::post('/admin_kontak_delete/{id}', 'AdminController@admin_kontak_delete')->name('admin_kontak_delete');
+
 Route::get('logout-admin', 'AuthController@logout')->name('logout-admin')->middleware(['admin', 'auth']);

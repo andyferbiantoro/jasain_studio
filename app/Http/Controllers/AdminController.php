@@ -9,6 +9,7 @@ use App\Team;
 use App\Galeri;
 use App\Testimoni;
 use App\VisiMisi;
+use App\Kontak;
 use Auth;
 use DB;
 use File;
@@ -415,4 +416,58 @@ public function admin_visi_misi_delete($id)
   return redirect('/admin_visi_misi')->with('success', 'Data testimoni Baru Berhasil Dihapus');
 }
 
+
+//================================================================================================================================
+
+public function admin_kontak(){
+
+   $kontak = Kontak::orderby('id','DESC')->get();
+
+   return view('admin.kontak',compact('kontak'));
+}
+
+
+public function admin_kontak_add(Request $request){
+
+   $data_add = new Kontak();
+
+   $data_add->alamat = $request->input('alamat');
+   $data_add->email = $request->input('email');
+   $data_add->nohp = $request->input('nohp');
+   
+  
+
+
+  $data_add->save();
+
+   return redirect('/admin_kontak')->with('success', 'Data kontak Baru Berhasil Ditambahkan');
+}
+
+
+public function admin_kontak_update(Request $request, $id)
+{
+
+  $data_update = Kontak::where('id', $id)->first();
+
+  $input = [
+     'alamat' => $request->alamat,
+     'email' => $request->email,
+     'nohp' => $request->nohp,
+ ];
+
+ 
+
+ $data_update->update($input);
+
+  return redirect('/admin_kontak')->with('success', 'Data kontak Baru Berhasil Diupdate');
+}
+
+
+public function admin_kontak_delete($id)
+{
+  $delete = Kontak::findOrFail($id);
+  $delete->delete();
+
+  return redirect('/admin_kontak')->with('success', 'Data testimoni Baru Berhasil Dihapus');
+}
 }
